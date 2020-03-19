@@ -24,5 +24,5 @@
 
 (let [x (battery (find-batteries filepath))
       sym (if (= 1 (parse charge)) "" (symbol x))]
-  (str sym x "%"))
+  (println (str sym x "%")))
 

@@ -30,7 +30,7 @@
 
 (defn display-wlan [connection, connectivity]
   (case connectivity
-    "full" (str "" "%{O3}" (:name connection))))
+    "full" (println (str "" "%{O3}" (:name connection)))))
 
 (display-wlan
  (->>
