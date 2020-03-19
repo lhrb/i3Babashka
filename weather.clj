@@ -12,7 +12,7 @@
     {:id "13" :icon "G"}
     {:id "50" :icon "M"}))
 
-(def api-key (str/trim (slurp "/home/exa/.config/i3b/weather.api")))
+(def api-key (first *input*))
 
 (defn req [key]
   (-> (sh "curl" "--request" "GET"
@@ -40,6 +40,7 @@
       :icon))
 
 (let [resp (req api-key)]
-  (str (-> resp parse-weather get-weather-icon font)
-       "%{O3}"
-       (-> resp temperatur format-tmp)))
+  (println
+   (str (-> resp parse-weather get-weather-icon font)
+        "%{O3}"
+        (-> resp temperatur format-tmp))))
