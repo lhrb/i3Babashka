@@ -20,14 +20,9 @@
   (int (* 100 (/ (type "/energy_now" bat) (type "/energy_full" bat)))))
 
 (defn symbol [x]
-  (cond
-    (< x 10) ""
-    (< x 25) ""
-    (< x 50) ""
-    (< x 75) ""
-    :else "" ))
+  (if (< x 15) "" "") )
 
 (let [x (battery (find-batteries filepath))
-      sym (if (= 1 (parse charge)) "" (symbol x))]
- (str sym " " x "%"))
+      sym (if (= 1 (parse charge)) "" (symbol x))]
+  (str sym x "%"))
 
